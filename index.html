@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>All Products Information Kiosk</title>
+
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+  
+<h1>All Products Information Kiosk</h1>
+  <div class="time">
+    <time><span id='date-time'></span></time>
+  </div>
+
+<style type="text/css">
+  
+.jumbotron, .container {
+    background: transparent;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+
+.center_ii {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 200px;
+  background: #086cdf;
+  color: #fcfbfc;
+  border: 3px solid white; 
+  padding: 10px;
+}
+
+.select2 {
+  // margin-left:-70px;
+}
+
+label {
+  // margin-left:-61px;
+}
+
+.select2-search { background-color: Khaki; }
+
+.select2-search input { background-color: Khaki; }
+
+.select2-results { background-color: Khaki; height: auto !important; }
+
+.select2-container--default .select2-selection--single{
+    background-color: Khaki;
+}
+
+.select2-search--dropdown{
+    background-color: Khaki;
+}
+.select2-search__field{
+    background-color: Khaki;
+}
+
+.select2-results { 
+    background-color: Khaki;
+    height: auto !important;    
+}
+
+/* Select option */
+.select2-results__option { 
+  font-size: 16px;
+}
+
+.select2-selection {
+    height: auto !important;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+max-height: 200px;
+min-height: 200px;
+overflow-y: auto;
+}
+
+</style>
+
+<br>
+
+    <div class="jumbotron center_ii">
+      <div class="container bg-danger">
+        <div class="col-md-6">
+          <label>Please Select Your Product Type</label>
+          <select id="single" class="js-states form-control">
+            <option value="" disabled selected>Select your option here</option>
+            <option value="1">Provisions - Coffee / Tea</option>
+            <option value="2">Provisions - Soft Drinks / Icecreams</option>
+            <option value="3">Dresses - Men's Wear</option>
+            <option value="4">Dresses - Women's Wear</option>
+            <option value="5">Shoes</option>
+            <option value="6">Hardware & Electricals</option>                        
+            <option value="7">Electronics & Computers</option>                                    
+            <option value="8">Books & Movies</option>                                                
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+      $("#single").select2({
+          placeholder: "Please Select Your Product Type",
+          allowClear: true
+      });
+    </script>
+
+<!--  
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+-->
+
+<link href="https://cdn.jsdelivr.net/gh/linuxguist/news@main/lora.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/gh/linuxguist/news@main/oswald.css" rel="stylesheet">
+
+<style>
+
+html,body {
+  background: violet;
+}
+
+h1 {
+  font: 700 4.0rem/1 'Oswald', sans-serif;
+  // text-transform: uppercase;
+  text-align: center;
+  margin-top: 14px;
+  margin-bottom: 14px;  
+}
+
+time {
+  font: 700 1.50rem 'Oswald', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  padding: 6px 0;
+  display: block;
+}
+time sup {
+  font-size: .675rem;
+  font-weight: normal;
+}
+
+  .news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+  }
+
+  .article-container {
+    text-decoration: none;
+    color: black;
+    background: khaki;
+    display: flex;
+    flex-direction: column;
+    width: 28vw; /* Increase this value if you want more articles per row, decrease if you want less*/
+    min-width: 150px;
+    max-width: 700px;
+    box-shadow: 2px 2px 25px 2px rgba(0,0,0,0.9);
+    margin: 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+  }
+
+  @media only screen and (max-width: 850px) {
+    .article-container {
+      width: 90vw;
+    }
+  }
+
+  .article-container:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 25px 2px rgba(139, 139, 139, 0.89);
+
+  }
+
+  .article-image {
+    width: 100%;
+    max-height: 100%;
+    height: 240px;
+}
+
+  .article-title {
+    padding: 10px;
+    font-size: 16px;
+  }
+</style>
+
+<script>
+
+  // Add, remove, modify your articles linked here
+
+  // If you have a Local html or a picture file, in the same folder as this file, then replace the internet addresses below with just the filename.ext 
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var articles_1 = [
+      {
+        onClickLink: 'https://www.starbucks.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/7.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.costa.co.uk/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/8.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.nescafe.com/in/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/9.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.teacurry.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/10.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.twiningsindia.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/11.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.lipton.com/us/en/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/12.png',
+        title: 'Write your description here'
+      }
+    ]
+
+    var rootElement = document.getElementById("imageGalleryWithTitle_1");
+
+    for (let i=0; i < articles_1.length; i++) {
+      //Create the container
+      var itemContainer = document.createElement("a");
+      itemContainer.classList.add("article-container");
+      var href = document.createAttribute("href");
+      href.value = articles_1[i].onClickLink;
+      itemContainer.setAttributeNode(href);
+      var target = document.createAttribute("target");
+      target.value = '_blank';
+      itemContainer.setAttributeNode(target);
+
+      //Create Image
+      var image = document.createElement("img");
+      image.classList.add("article-image");
+      var src = document.createAttribute("src");
+      src.value = articles_1[i].imageSource;
+      image.setAttributeNode(src);
+      var alt = document.createAttribute("alt");
+      alt.value = articles_1[i].title;
+      image.setAttributeNode(alt);
+
+      //Create title
+      var h3 = document.createElement("h3");
+      h3.classList.add("article-title");
+      var h3Text = document.createTextNode(articles_1[i].title);
+      h3.appendChild(h3Text);
+
+      //Atach image and title to container
+      itemContainer.appendChild(image);
+      itemContainer.appendChild(h3);
+
+      //Attach element to root div
+      rootElement.appendChild(itemContainer);
+    }
+  });
+
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var articles_2 = [
+      {
+        onClickLink: 'https://www.pepsico.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/13.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.coca-colacompany.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/14.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.unilever.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/20.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.benjerry.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/16.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.haagendazsindia.com/',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/17.png',
+        title: 'Write your description here'
+      },
+      {
+        onClickLink: 'https://www.breyers.com/us/en',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/18.png',
+        title: 'Write your description here'
+      }
+    ]
+
+    var rootElement = document.getElementById("imageGalleryWithTitle_2");
+
+    for (let i=0; i < articles_2.length; i++) {
+      //Create the container
+      var itemContainer = document.createElement("a");
+      itemContainer.classList.add("article-container");
+      var href = document.createAttribute("href");
+      href.value = articles_2[i].onClickLink;
+      itemContainer.setAttributeNode(href);
+      var target = document.createAttribute("target");
+      target.value = '_blank';
+      itemContainer.setAttributeNode(target);
+
+      //Create Image
+      var image = document.createElement("img");
+      image.classList.add("article-image");
+      var src = document.createAttribute("src");
+      src.value = articles_2[i].imageSource;
+      image.setAttributeNode(src);
+      var alt = document.createAttribute("alt");
+      alt.value = articles_2[i].title;
+      image.setAttributeNode(alt);
+
+      //Create title
+      var h3 = document.createElement("h3");
+      h3.classList.add("article-title");
+      var h3Text = document.createTextNode(articles_2[i].title);
+      h3.appendChild(h3Text);
+
+      //Atach image and title to container
+      itemContainer.appendChild(image);
+      itemContainer.appendChild(h3);
+
+      //Attach element to root div
+      rootElement.appendChild(itemContainer);
+    }
+  });
+
+
+
+</script>
+
+<script>
+var dt = new Date();
+document.getElementById('date-time').innerHTML=dt;
+</script>
+
+<div id='all_imageGalleryWithTitle'>
+
+<div id='imageGalleryWithTitle_1' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_2' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_3' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_4' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_5' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_6' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_7' class="news-container" style="display:none;"></div>
+
+<div id='imageGalleryWithTitle_8' class="news-container" style="display:none;"></div>
+  
+</div>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "1"){
+        $("#imageGalleryWithTitle_1").show();
+    } else {
+        $("#imageGalleryWithTitle_1").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "2"){
+        $("#imageGalleryWithTitle_2").show();
+    } else {
+        $("#imageGalleryWithTitle_2").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+
+// The .html statements below display site under construction image for certain options. remove them if you have defined articles also for them earlier.
+
+$('#single').on('change', function () {
+    if(this.value === "3"){      
+        $("#imageGalleryWithTitle_3").show();
+        $("#imageGalleryWithTitle_3").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");
+    } else {
+        $("#imageGalleryWithTitle_3").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "4"){
+        $("#imageGalleryWithTitle_4").show();
+        $("#imageGalleryWithTitle_4").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");        
+    } else {
+        $("#imageGalleryWithTitle_4").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "5"){
+        $("#imageGalleryWithTitle_5").show();
+        $("#imageGalleryWithTitle_5").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");        
+    } else {
+        $("#imageGalleryWithTitle_5").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "6"){
+        $("#imageGalleryWithTitle_6").show();
+        $("#imageGalleryWithTitle_6").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");        
+    } else {
+        $("#imageGalleryWithTitle_6").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "7"){
+        $("#imageGalleryWithTitle_7").show();
+        $("#imageGalleryWithTitle_7").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");        
+    } else {
+        $("#imageGalleryWithTitle_7").hide();
+    }
+});  
+</script>
+
+<script type="text/javascript">
+$('#single').on('change', function () {
+    if(this.value === "8"){
+        $("#imageGalleryWithTitle_8").show();
+        $("#imageGalleryWithTitle_8").html("<img id='under_construction' src='https://i.imgur.com/POK04Vu.jpg' style='background-size: cover;background-repeat: no-repeat;background-position:center;'>");        
+    } else {
+        $("#imageGalleryWithTitle_8").hide();
+    }
+});  
+</script>
+
+</body>
+</html>
