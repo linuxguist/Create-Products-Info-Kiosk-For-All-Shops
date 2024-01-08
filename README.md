@@ -18,3 +18,4 @@ Here are some of the most popular kinds of catalogs:
     Media library catalogs: Sales teams and marketing teams use this kind of catalog to help advance their goals in a more effective way.
 
 Youtube Video : https://youtu.be/q-CxNb3sADU
+
